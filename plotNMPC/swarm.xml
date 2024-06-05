@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<parameters>
+    <agent_num type="int">
+        <value>4</value>
+    </agent_num>
+    <states_num type="int">
+        <value>3</value>
+    </states_num>
+  <obs_num type="int">
+        <value>4</value>
+    </obs_num>
+  <decnum type="int">
+        <value>3</value>
+    </decnum>
+    <sensor_range type="double">
+        <value>0</value>
+    </sensor_range> 
+    <IP type="std::string">
+        <value>192.168.1.65</value>
+    </IP> 	
+
+<relationmatrix type="Eigen::MatrixXd">
+	<value>
+	0 3.46 3.46 2
+	3.46 0 3.46 2
+	3.46 3.46 0 2
+	2 2 2 0
+	</value>
+    </relationmatrix>
+
+    <steptime type="int">
+        <value>30</value>
+    </steptime>
+
+    <communication_range type="double">
+        <value>40</value>
+    </communication_range>
+    <collision_r type="double">
+        <value>5</value>
+    </collision_r>
+
+
+
+<agent_mat type="Eigen::MatrixXd">
+	<value>
+	-1.0 0 0
+	1 -1 0
+	-1 -2 0
+	1.5 2.4 0
+	</value>
+</agent_mat>
+<!--目标车辆的初始状态，在最后一行-->
+
+<!--下面都是障碍物的分布状态-->
+<OBS_1_vertexnum type="int">
+	<value>
+	8
+	</value>
+</OBS_1_vertexnum>
+<OBS_1_vertexparams type="Eigen::MatrixXd">
+	<value>
+	9.5 0
+	9 -1
+	8 -1.5
+	7 -1
+	6.5 0
+	7 1
+	8 1.5
+	9 1
+	</value>
+</OBS_1_vertexparams>
+
+<OBS_2_vertexnum type="int">
+	<value>
+	3
+	</value>
+</OBS_2_vertexnum>
+<OBS_2_vertexparams type="Eigen::MatrixXd">
+	<value>
+	12 4
+	13 6
+	14 1
+	</value>
+</OBS_2_vertexparams>
+
+<OBS_3_vertexnum type="int">
+	<value>
+	4
+	</value>
+</OBS_3_vertexnum>
+<OBS_3_vertexparams type="Eigen::MatrixXd">
+	<value>
+	10.8 9.1
+	11.8 12.1
+	10.8 13.1
+	9.8 11.1
+	</value>
+</OBS_3_vertexparams>
+<OBS_4_vertexnum type="int">
+	<value>
+	4
+	</value>
+</OBS_4_vertexnum>
+<OBS_4_vertexparams type="Eigen::MatrixXd">
+	<value>
+	5 9
+	5 13
+	2 18
+	3 12
+	</value>
+</OBS_4_vertexparams>
+</parameters>

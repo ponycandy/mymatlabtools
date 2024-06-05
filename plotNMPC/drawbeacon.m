@@ -1,5 +1,5 @@
 function drawbeacon(x,y,alpha)
-
+alpha=alpha+pi/2;
 pixl=0.8;
 
 pix_x=x;%不做任何缩放

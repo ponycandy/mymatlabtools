@@ -4,12 +4,13 @@ xmlconfigname='C:\qtworkspace\newsim\my_simulation_dir\build\config\DistributedM
 
 obs_num=XMLread(xmlconfigname,'obs_num');
 
+xmlconfigname_OBS='C:\matlabws\draw\mymatlabtools-master\plotNMPC\swarm.xml';
 
 figure();
 hold on;
 %首先绘制障碍物
 for i=1:1:obs_num
-    OBS=XMLread(xmlconfigname,string("OBS_")+string(i)+string("_vertexparams"));
+    OBS=XMLread(xmlconfigname_OBS,string("OBS_")+string(i)+string("_vertexparams"));
     plotOBS(OBS);
     hold on;
 end
@@ -92,6 +93,6 @@ for j = 1:agentnum
 end
 % 
 lineHandles = findobj('Type', 'line');
-xlabel('X /m');
-ylabel('Y /m');
-legend([lineHandles(14),lineHandles(13),lineHandles(12),lineHandles(11)],{'agent1','agent2','agent3','Target'});hold on;
+xlabel('X coordinate(m)');
+ylabel('Y coordinate(m)');
+legend([lineHandles(14),lineHandles(13),lineHandles(12),lineHandles(11)],{'agent1','agent2','agent3','leader'});hold on;

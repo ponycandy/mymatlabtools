@@ -4,8 +4,8 @@ agentnum=3;%绘制4个追踪者的所有状态
 decnum=1000;
 timeserires=0:0.03:decnum*0.03-0.03;
 colourmap={'red','green','blue','yellow'};
-xlabelname={'time(sec)','time(sec)','time(sec)','time(sec)','time(sec)'};
-ylabelname={'X coordinate(m)','Y coordinate(m)','vx m/s','vy m/s' ,'Omega rad/s'};
+xlabelname={'time /s','time /s','time /s','time /s','time /s'};
+ylabelname={'x /m','y /m','vx m/s','vy m/s' ,'Omega rad/s'};
 titlename={'x ','y','vx ','vy ','phi','Omega'};
 legendname={'agent1','agent2','agent3','agent4'};
 datacell=cell(4);
@@ -19,9 +19,9 @@ for j = 1:agentnum
 end
 
 %在一张图上绘制所有agent的同一状态
-
+ figure();
 for j = 1:4%这里只包含了x y vx vy状
-    figure();
+   
     
     
     %     selfstates_ETM=M_j(:,1:4);
@@ -33,13 +33,15 @@ for j = 1:4%这里只包含了x y vx vy状
                 M_j(si,j)=nan;
             end
         end
-        
+        if(j==1 || j==2)
+            subplot(2,3,j);
         h=stem(timeserires,M_j(1:decnum,j),'LineStyle','-', 'MarkerFaceColor',colourmap{agent});
         xlim ([timeserires(1) timeserires(end)]);
         xlabel(xlabelname{j});
         ylabel(ylabelname{j});
+        title(titlename{j});
         
-        
+        end
         hold on
     end
     legend(legendname{1},legendname{2},legendname{3});
@@ -58,8 +60,9 @@ for agent=1:1:agentnum
     
     h=stem(timeserires,M_j(1:decnum,j),'LineStyle','-', 'MarkerFaceColor',colourmap{agent});
     xlim ([timeserires(1) timeserires(end)]);
-    xlabel('time(sec)');
-    ylabel('vehicle heading angle(rad)');
+    xlabel('time /s');
+    ylabel('phi /rad');
+    title('phi');
     
     
     hold on
@@ -81,6 +84,7 @@ for agent=1:1:agentnum
     xlim ([timeserires(1) timeserires(end)]);
     xlabel('time /s');
     ylabel('Omega rad/s');
+    title('Omega');
     
     
     hold on

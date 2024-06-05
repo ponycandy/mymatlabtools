@@ -25,43 +25,8 @@ for j = 1:agentnum
     coord{j}=cor_j;
 end
 %绘制全部的x值
-figure()
-for j = 1:agentnum
-    M_j=datacell{1,j};%读取所有状态量
-    x=M_j(1:decnum,agentnum*4+4+1);
-    plot(time,x);
-    xlim ([time(1) time(end)]);
-    hold on;
-end
-xlabel('time(sec)');
-ylabel('X coordinate(m)');
-legend({'agent1','agent2','agent3'});
 
 
-figure()
-for j = 1:agentnum
-    M_j=datacell{1,j};%读取所有状态量
-    x=M_j(1:decnum,agentnum*4+4+7);
-    plot(time,x);
-    xlim ([time(1) time(end)]);
-    hold on;
-end
-xlabel('time(sec)');
-ylabel('vehicle heading angle(rad)');
-legend({'agent1','agent2','agent3'});
-
-
-figure()
-for j = 1:agentnum
-    M_j=datacell{1,j};%读取所有状态量
-    y=M_j(1:decnum,agentnum*4+4+2);
-    plot(time,y);
-    xlim ([time(1) time(end)]);
-    hold on;
-end
-xlabel('time(sec)');
-ylabel('Y coordinate(m)');
-legend({'agent1','agent2','agent3'});
 %绘制全部的y值
 %获取数据
 filename=string('C:\qtworkspace\newsim\my_simulation_dir\build\log\ETM_Target.xls');%这里会包含所有的数据类型
@@ -70,27 +35,78 @@ x=M_j(:,agentnum*4+4+1);
 y=M_j(:,agentnum*4+4+2);
 
 
+avgerror=cell(agentnum);
+
 distance_Tag={2,2,2};
 error=zeros(decnum,1);
 figure()
+%这里是到leader的距离
 for j = 1:agentnum
     
-    
+    avergeerror_i=zeros(decnum,1);
     cor_j=coord{j};
     for k=1:1:decnum
         cor_next=[x(k) y(k)];
         distance= norm(cor_next-cor_j(k,:));
-        error(k,1)=distance-distance_Tag{j};
+        error(k,1)=distance;
+        
+        avergeerror_i(k,1)=distance-2;
     end
     
     plot(time,error);
     xlim ([time(1) time(end)]);
     
     hold on;
+    avgerror{j}=avergeerror_i;
+    
+end
+
+
+xlabel('time /s');
+
+
+hold on 
+
+for j = 1:agentnum
+    
+    avergeerror_j=avgerror{j};
+    
+    j_1=j+1;
+    if(j_1>agentnum)
+        j_1=1;
+    end
+    cor_j=coord{j};
+    cor_next=coord{j_1};
+    for k=1:1:decnum
+        
+        distance= norm(cor_next(k,:)-cor_j(k,:));
+        error(k,1)=distance;
+        avergeerror_j(k,1)=avergeerror_j(k,1)+distance-3.46;
+    end
+    
+    plot(time,error);
+    xlim ([time(1) time(end)]);
+    avgerror{j}=avergeerror_j;
+    hold on;
     
     
 end
-ylabel('error(m)');
+ylabel('distance(m)')
 xlabel('time(sec)');
+legend({'leader - UGV1','leader - UGV2','leader - UGV3','UGV1 - UGV2','UGV2 - UGV3','UGV3 - UGV1'})
+
+figure();
+
+for j = 1:agentnum
+    
+    avergeerror_j=avgerror{j};
+    plot(time,avergeerror_j);
+    xlim ([time(1) time(end)]);
+    avgerror{j}=avergeerror_j;
+    hold on;
+    
+    
+end
+xlabel('time /s');
 
 legend({'e1','e2','e3'})

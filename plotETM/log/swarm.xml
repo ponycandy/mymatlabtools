@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<parameters>
+    <agent_num type="int">
+        <value>6</value>
+    </agent_num>
+    <decnum type="int">
+        <value>6</value>
+    </decnum>
+
+  <maximumPotential type="double">
+        <value>0.262144</value>
+    </maximumPotential>
+
+  <obs_num type="int">
+        <value>0</value>
+    </obs_num>
+  <circle_num type="int">
+        <value>2</value>
+    </circle_num>
+    <sensor_range type="double">
+        <value>0</value>
+    </sensor_range> 	
+
+    <Incp type="double">
+        <value>0</value>
+    </Incp> 
+    <Edge_num type="int">
+        <value>5</value>
+    </Edge_num> 
+    <Vertex_num type="int">
+        <value>4</value>
+    </Vertex_num> 
+    <relationmatrix type="Eigen::MatrixXd">
+	<value>
+	0 1 0 0 1 0
+	1 0 1 0 0 0
+	0 1 0 1 0 0
+	0 0 1 0 0 1
+	1 0 0 0 0 1
+	0 0 0 1 1 0
+	</value>
+    </relationmatrix>
+    <formationmatrix type="Eigen::MatrixXd">
+	<value>
+	1 2 1 -1 -1 -2
+	1.732 0 -1.732 -1.732 1.732 0
+	</value>
+    </formationmatrix>
+
+
+    <steptime type="int">
+        <value>30</value>
+    </steptime>
+       <leadercommunication_r type="double">
+        <value>10</value>
+    </leadercommunication_r>
+
+    <communication_range type="double">
+        <value>20</value>
+    </communication_range>
+    <collision_r type="double">
+        <value>2</value>
+    </collision_r>
+   <states_num type="int">
+        <value>3</value>
+    </states_num>
+
+<agent_mat type="Eigen::MatrixXd">
+	<value>
+	1.2 1.732 0
+	2.0 0 0
+	1 -1.732 0
+	-1 -1.732 0
+	-1 1.732 0
+	-2 0 0
+	</value>
+</agent_mat>
+<!--agent_mat是追踪者的初始状态-->
+</parameters>
+
