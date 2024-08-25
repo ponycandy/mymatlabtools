@@ -1,6 +1,10 @@
 agentnum=3;%绘制4个追踪者的所有状态
 decnum=1000;
 time=0:0.03:decnum*0.03-0.03;
+linemap_spec={'-.',':','--','-','-.',':'};
+linewidth={2,2,2,2,1,1};
+k_oop=1;
+
 colourmap={'red','green','blue','yellow'};
 xlabelname={'时间 s','时间 s','时间 s','时间 s'};
 ylabelname={'x m','y m','vx m/s','vy m/s'};
@@ -53,7 +57,8 @@ for j = 1:agentnum
         avergeerror_i(k,1)=distance-2;
     end
     
-    plot(time,error);
+    plot(time,error,'LineStyle', linemap_spec{j},'LineWidth', linewidth{k_oop});
+    k_oop=k_oop+1;
     xlim ([time(1) time(end)]);
     
     hold on;
@@ -84,16 +89,17 @@ for j = 1:agentnum
         avergeerror_j(k,1)=avergeerror_j(k,1)+distance-3.46;
     end
     
-    plot(time,error);
+    plot(time,error,'LineStyle', linemap_spec{j+3},'LineWidth', linewidth{k_oop});
+    k_oop=k_oop+1;
     xlim ([time(1) time(end)]);
     avgerror{j}=avergeerror_j;
     hold on;
     
     
 end
-ylabel('distance(m)')
-xlabel('time(sec)');
-legend({'leader - UGV1','leader - UGV2','leader - UGV3','UGV1 - UGV2','UGV2 - UGV3','UGV3 - UGV1'})
+ylabel('距离(m)')
+xlabel('时间(s)');
+legend({'领导车 - 无人车1','领导车 - 无人车2','领导车 - 无人车3','无人车1 - 无人车2','无人车2 - 无人车3','无人车3 - 无人车1'})
 
 figure();
 

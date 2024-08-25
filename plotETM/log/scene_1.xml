@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <parameters>
     <agent_num type="int">
-        <value>4</value>
+        <value>6</value>
     </agent_num>
     <decnum type="int">
         <value>6</value>
@@ -32,10 +32,12 @@
     </Vertex_num> 
     <relationmatrix type="Eigen::MatrixXd">
 	<value>
-	0 3 3 1.732
-	3 0 3 1.732
-	3 3 0 1.732
-	1.732 1.732 1.732 0
+	0 3 5 4 2.5 0
+	3 0 4 5 2.5 0
+	5 4 0 3 2.5 0
+	4 5 3 0 2.5 0
+	2.5 2.5 2.5 2.5 0 0
+	0 0 0 0 0 0
 	</value>
     </relationmatrix>
 
@@ -51,32 +53,54 @@
         <value>20</value>
     </communication_range>
     <collision_r type="double">
-        <value>2</value>
+        <value>20</value>
     </collision_r>
    <states_num type="int">
         <value>3</value>
     </states_num>
+   <lookaheadnum type="int">
+        <value>7</value>
+    </lookaheadnum>
 
 <agent_mat type="Eigen::MatrixXd">
 	<value>
-	1 1 0
-	2 0 0
-	3 1 0
-	9 5 0
+	2.5 5.5 45
+	2.5 2.5 -45
+	6.5 2.5 30
+	6.5 5.5 -10
+	4.5 4 0
+	5.1 4 1.3
 	</value>
 </agent_mat>
-
+<lookahead type="Eigen::MatrixXd">
+	<value>
+	12.70823 6.86843
+	19.73903 12.36308
+	24.93827 16.67609
+	32.26448 16.49885
+	40.18151 12.89483
+	43.60829 7.04567
+	46.44424 1.07836
+	</value>
+</lookahead>
 
 <OBS_1_vertexnum type="int">
 	<value>
-	3
+	10
 	</value>
 </OBS_1_vertexnum>
 <OBS_1_vertexparams type="Eigen::MatrixXd">
 	<value>
-	9.54267 8.40933
-	12.0813 6.89467
-	11.8893 9.96667
+	9.36194 -1.14751
+	12.46757 3.60228
+	17.9481 7.66701
+	24.06803 11.91442
+	30.37064 12.55381
+	35.12043 10.49862
+	39.04814 7.02761
+	41.65139 2.0038
+	41.74273 -1.69556
+	23.29162 -14.07242
 	</value>
 </OBS_1_vertexparams>
 

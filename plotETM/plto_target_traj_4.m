@@ -3,12 +3,12 @@
 
 
 steptime=0.03;
-totaltime=60;
+totaltime=240;
 decnum=totaltime/steptime;
 figure();
 x=0;
 y=0;
-alpha=0;
+alpha=75*pi/180;
 odefun = @(t, y) center_steering_ode_function(t, y); % Define your ODE function here
 
 vel=0;
@@ -28,9 +28,18 @@ all_y = zeros(5, decnum);
 
 vel=0.3;
 omega=0;
-
+cahce_y=initial_conditions(2);
+stepcounter=0;
 for i = 1:decnum
+    
+    if stepcounter>1000
+        stepcounter=0;
+        initial_conditions(3)=-initial_conditions(3);
+    else
+        stepcounter=stepcounter+1;
+    end
     y0 = initial_conditions; % Set initial condition for current iteration
+    
     y0(4)=vel;
     y0(5)=omega;
     % Solve ODE using ode45
@@ -41,13 +50,14 @@ for i = 1:decnum
     
     all_y(:,i) = y(end,:)';
     all_t{i} = t(end);
+    
     initial_conditions(1:3)= y(end,1:3)';
     
 end
 
 % Plot the solution for current iteration
 plot(all_y(1,:), all_y(2,:));
-markertime=[1,500,1000,1500,2000];
+markertime=1:500:decnum+1;
 hold on;
 for j=1:1:size(markertime,2)
     index=markertime(j);

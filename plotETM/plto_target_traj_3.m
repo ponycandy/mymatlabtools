@@ -3,12 +3,12 @@
 
 
 steptime=0.03;
-totaltime=60;
+totaltime=120;
 decnum=totaltime/steptime;
 figure();
 x=0;
 y=0;
-alpha=0;
+alpha=pi/4;
 odefun = @(t, y) center_steering_ode_function(t, y); % Define your ODE function here
 
 vel=0;
@@ -27,11 +27,15 @@ all_t = cell(decnum, 1);
 all_y = zeros(5, decnum);
 
 vel=0.3;
-omega=0;
-
+omega=0.05;
+cahce_y=initial_conditions(2);
 for i = 1:decnum
     y0 = initial_conditions; % Set initial condition for current iteration
     y0(4)=vel;
+    if initial_conditions(3)<=-pi/4 || initial_conditions(3)>=pi/4
+        omega=-omega;
+    end
+    cahce_y=initial_conditions(2);
     y0(5)=omega;
     % Solve ODE using ode45
     [t, y] = ode45(odefun, [0,steptime], y0); % Define tspan as needed
@@ -41,13 +45,14 @@ for i = 1:decnum
     
     all_y(:,i) = y(end,:)';
     all_t{i} = t(end);
+    
     initial_conditions(1:3)= y(end,1:3)';
     
 end
 
 % Plot the solution for current iteration
 plot(all_y(1,:), all_y(2,:));
-markertime=[1,500,1000,1500,2000];
+markertime=1:500:decnum+1;
 hold on;
 for j=1:1:size(markertime,2)
     index=markertime(j);

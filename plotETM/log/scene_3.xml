@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<parameters>
+    <agent_num type="int">
+        <value>6</value>
+    </agent_num>
+    <decnum type="int">
+        <value>6</value>
+    </decnum>
+
+  <maximumPotential type="double">
+        <value>0.262144</value>
+    </maximumPotential>
+
+  <obs_num type="int">
+        <value>6</value>
+    </obs_num>
+  <circle_num type="int">
+        <value>2</value>
+    </circle_num>
+    <sensor_range type="double">
+        <value>0</value>
+    </sensor_range> 	
+
+    <Incp type="double">
+        <value>0</value>
+    </Incp> 
+    <Edge_num type="int">
+        <value>5</value>
+    </Edge_num> 
+    <Vertex_num type="int">
+        <value>4</value>
+    </Vertex_num> 
+    <relationmatrix type="Eigen::MatrixXd">
+	<value>
+	0 3 5 4 2.5 0
+	3 0 4 5 2.5 0
+	5 4 0 3 2.5 0
+	4 5 3 0 2.5 0
+	2.5 2.5 2.5 2.5 0 0
+	0 0 0 0 0 0
+	</value>
+    </relationmatrix>
+
+
+    <steptime type="int">
+        <value>30</value>
+    </steptime>
+       <leadercommunication_r type="double">
+        <value>10</value>
+    </leadercommunication_r>
+
+    <communication_range type="double">
+        <value>20</value>
+    </communication_range>
+    <collision_r type="double">
+        <value>5</value>
+    </collision_r>
+   <states_num type="int">
+        <value>3</value>
+    </states_num>
+   <lookaheadnum type="int">
+        <value>7</value>
+    </lookaheadnum>
+
+<agent_mat type="Eigen::MatrixXd">
+	<value>
+	2.5 5.5 45
+	2.5 2.5 -45
+	6.5 2.5 30
+	6.5 5.5 -10
+	4.5 4 0
+	5.1 4 1.3
+	</value>
+</agent_mat>
+<lookahead type="Eigen::MatrixXd">
+	<value>
+	10.00134 0.81635
+	14.4771 5.4748
+	21.14508 9.08281
+	24.84444 5.24644
+	26.53427 -1.14751
+	35.62281 -1.74123
+	44.66568 -0.7364
+	</value>
+</lookahead>
+
+<OBS_1_vertexnum type="int">
+	<value>
+	3
+	</value>
+</OBS_1_vertexnum>
+<OBS_1_vertexparams type="Eigen::MatrixXd">
+	<value>
+	9.18702 5.18369
+	14.27757 10.79032
+	6.79424 9.24205
+	</value>
+</OBS_1_vertexparams>
+
+<OBS_2_vertexnum type="int">
+	<value>
+	3
+	</value>
+</OBS_2_vertexnum>
+<OBS_2_vertexparams type="Eigen::MatrixXd">
+	<value>
+	30.04968 8.88507
+	31.22049 12.72048
+	21.97514 13.12421
+	</value>
+</OBS_2_vertexparams>
+
+<OBS_3_vertexnum type="int">
+	<value>
+	4
+	</value>
+</OBS_3_vertexnum>
+<OBS_3_vertexparams type="Eigen::MatrixXd">
+	<value>
+	41.99658 2.69891
+	39.81076 10.23774
+	34.99305 7.82889
+	35.61757 5.19699
+	</value>
+</OBS_3_vertexparams>
+
+<OBS_4_vertexnum type="int">
+	<value>
+	3
+	</value>
+</OBS_4_vertexnum>
+<OBS_4_vertexparams type="Eigen::MatrixXd">
+	<value>
+	20.35552 -3.51655
+	21.74062 4.12816
+	15.45438 -0.90616
+	</value>
+</OBS_4_vertexparams>
+
+<OBS_5_vertexnum type="int">
+	<value>
+	4
+	</value>
+</OBS_5_vertexnum>
+<OBS_5_vertexparams type="Eigen::MatrixXd">
+	<value>
+	30.45841 0.32133
+	34.19352 1.72628
+	27.64851 4.81032
+	28.05971 1.62348
+	</value>
+</OBS_5_vertexparams>
+
+<OBS_6_vertexnum type="int">
+	<value>
+	3
+	</value>
+</OBS_6_vertexnum>
+<OBS_6_vertexparams type="Eigen::MatrixXd">
+	<value>
+	35.14008 -6.5582
+	43.84934 -4.1071
+	27.26525 -3.79419
+	</value>
+</OBS_6_vertexparams>
+
+
+</parameters>
+

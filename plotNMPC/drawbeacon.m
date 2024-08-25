@@ -1,4 +1,4 @@
-function drawbeacon(x,y,alpha)
+function drawbeacon(x,y,alpha,color,factor)
 alpha=-alpha;
 pixl=0.8;
 
@@ -10,7 +10,7 @@ OBS=[       pixl, 0;
     0, 0;
     -pixl, pixl;
     pixl, 0];
-
+OBS=OBS*factor;
 for i=1:1:5
     
     x_c1=cos(alpha)*OBS(i,1)+sin(alpha)*OBS(i,2)+pix_x;
@@ -22,7 +22,7 @@ end
 x=OBS(:,1);
 y=OBS(:,2);
 plot([x; x(1)], [y ;y(1)], 'k');
-fill(x, y, 'r');
+fill(x, y, color);
 grid on;
 axis equal;
 hold on;

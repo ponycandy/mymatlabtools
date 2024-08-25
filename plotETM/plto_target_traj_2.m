@@ -3,7 +3,7 @@
 
 
 steptime=0.03;
-totaltime=60;
+totaltime=120;
 decnum=totaltime/steptime;
 figure();
 x=0;
@@ -27,7 +27,7 @@ all_t = cell(decnum, 1);
 all_y = zeros(5, decnum);
 
 vel=0.3;
-omega=0;
+omega=0.05;
 
 for i = 1:decnum
     y0 = initial_conditions; % Set initial condition for current iteration
@@ -47,7 +47,7 @@ end
 
 % Plot the solution for current iteration
 plot(all_y(1,:), all_y(2,:));
-markertime=[1,500,1000,1500,2000];
+markertime=1:500:decnum+1;
 hold on;
 for j=1:1:size(markertime,2)
     index=markertime(j);
